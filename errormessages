@@ -1,0 +1,46 @@
+$ gcc studentsedit.c -o studentsedit
+studentsedit.c: In function ‘main’:
+studentsedit.c:37:16: warning: passing argument 1 of ‘fprintf’ makes pointer from integer without a cast [-Wint-conversion]
+   37 |        fprintf(*"\n*Roll number: %d\n", i + 1);
+      |                ^~~~~~~~~~~~~~~~~~~~~~~
+      |                |
+      |                char
+In file included from studentsedit.c:1:
+/usr/include/stdio.h:326:38: note: expected ‘FILE * restrict’ {aka ‘struct _IO_FILE * restrict’} but argument is of type ‘char’
+  326 | extern int fprintf (FILE *__restrict __stream,
+      |                     ~~~~~~~~~~~~~~~~~^~~~~~~~
+studentsedit.c:37:43: warning: passing argument 2 of ‘fprintf’ makes pointer from integer without a cast [-Wint-conversion]
+   37 |        fprintf(*"\n*Roll number: %d\n", i + 1);
+      |                                         ~~^~~
+      |                                           |
+      |                                           int
+In file included from studentsedit.c:1:
+/usr/include/stdio.h:327:30: note: expected ‘const char * restrict’ but argument is of type ‘int’
+  327 |       const char *__restrict __format, ...);
+      |       ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+studentsedit.c:37:8: warning: format not a string literal and no format arguments [-Wformat-security]
+   37 |        fprintf(*"\n*Roll number: %d\n", i + 1);
+      |        ^~~~~~~
+studentsedit.c:38:34: error: expected ‘)’ before ‘firstStudent’
+   38 |        fprintf(fptr,"First name:"firstStudent);
+      |                                  ^~~~~~~~~~~~
+      |                                  )
+studentsedit.c:42:36: error: expected ‘)’ before ‘secondStudent’
+   42 |        fprintf(fptr, "First name: "secondStudent);
+      |                                    ^~~~~~~~~~~~~
+      |                                    )
+studentsedit.c:45:16: warning: passing argument 1 of ‘fprintf’ from incompatible pointer type [-Wincompatible-pointer-types]
+   45 |        fprintf("\n");
+      |                ^~~~
+      |                |
+      |                char *
+In file included from studentsedit.c:1:
+/usr/include/stdio.h:326:38: note: expected ‘FILE * restrict’ {aka ‘struct _IO_FILE * restrict’} but argument is of type ‘char *’
+  326 | extern int fprintf (FILE *__restrict __stream,
+      |                     ~~~~~~~~~~~~~~~~~^~~~~~~~
+studentsedit.c:45:8: error: too few arguments to function ‘fprintf’
+   45 |        fprintf("\n");
+      |        ^~~~~~~
+In file included from studentsedit.c:1:
+/usr/include/stdio.h:326:12: note: declared here
+  326 | extern int fprintf (FILE *__restrict __stream,
